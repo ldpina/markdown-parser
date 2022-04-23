@@ -18,7 +18,13 @@ public class MarkdownParse {
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
 
-            if (!markdown.substring(openBracket-1, openBracket).equals("!"))
+            if(openBracket < 0 || openParen < 0)
+            {
+                break;
+            }
+
+            if (!markdown.substring(openBracket-1, openBracket).equals("!") && (!markdown.substring(openBracket-1, openBracket).equals("`") &&
+             !markdown.substring(openBracket-1, openBracket).equals("#")))
             {
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
             }
