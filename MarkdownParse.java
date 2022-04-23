@@ -22,12 +22,17 @@ public class MarkdownParse {
             {
                 break;
             }
+            
+            if (openBracket > 0  && (markdown.substring(openBracket-1, openBracket).equals("!") || markdown.substring(openBracket-1, openBracket).equals("`") )){
+                
+                currentIndex = closeParen + 1;
+                continue;
 
-            if (!markdown.substring(openBracket-1, openBracket).equals("!") && (!markdown.substring(openBracket-1, openBracket).equals("`") &&
-             !markdown.substring(openBracket-1, openBracket).equals("#")))
-            {
-                toReturn.add(markdown.substring(openParen + 1, closeParen));
             }
+            
+            
+            toReturn.add(markdown.substring(openParen + 1, closeParen));
+            
             currentIndex = closeParen + 1;  
 
         }
