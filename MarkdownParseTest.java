@@ -139,4 +139,19 @@ public class MarkdownParseTest {
 
         assertEquals(expect, links);
     }
+
+        @Test
+    public void testGetLinksF9() throws IOException
+    {
+        Path fileName =   Path.of("test-file9.md");   
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+
+        ArrayList<String> expect = new ArrayList<>();
+        expect.add("https://twitter.com");
+        expect.add("");
+        expect.add("https://facebook.com");
+
+        assertEquals(expect, links);
+    }
 }

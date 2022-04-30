@@ -27,14 +27,20 @@ public class MarkdownParse {
                 
                 currentIndex = closeParen + 1;
                 continue;
-
             }
+
+
+            if (closeBracket > 0 && closeBracket-1 == markdown.indexOf("\n"))
+            {
+                currentIndex = closeParen+1;
+                continue;
+            }
+
             
             
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             
             currentIndex = closeParen + 1;  
-
         }
 
         return toReturn;
