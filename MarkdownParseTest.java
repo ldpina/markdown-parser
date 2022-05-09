@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class MarkdownParseTest {
 
     @Test
-    public void mod() throws IOException
+    public void modTester() throws IOException
     {
         assertEquals(0, 2%2);
     }
