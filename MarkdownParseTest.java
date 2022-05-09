@@ -12,6 +12,13 @@ import java.util.ArrayList;
 public class MarkdownParseTest {
 
     @Test
+    public void mod() throws IOException
+    {
+        assertEquals(0, 2%2);
+    }
+
+
+    @Test
     public void testGetLinks() throws IOException
     {
         Path fileName =   Path.of("test-file.md");   
