@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.List;
 
 //Running junit
 //javac -cp ".;lib\junit-4.13.2.jar;lib\hamcrest-core-1.3.jar" MarkdownParseTest.java
@@ -157,5 +158,35 @@ public class MarkdownParseTest {
         expect.add("https://facebook.com");
 
         assertEquals(expect, links);
+    }
+
+    @Test
+    public void testLab4A() throws IOException
+    {
+        Path fileName =   Path.of("lab4testA.md");   
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+
+        assertEquals(List.of("`google.com","google.com", "ucsd.edu"), links);
+    }
+
+    @Test
+    public void testLab4B() throws IOException
+    {
+        Path fileName =   Path.of("lab4testB.md");   
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+
+        assertEquals(List.of("a.com","a.com(())", "example.com"), links);
+    }
+
+    @Test
+    public void testLab4C() throws IOException
+    {
+        Path fileName =   Path.of("lab4testC.md");   
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+
+        assertEquals(List.of("https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule"), links);
     }
 }
